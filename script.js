@@ -15,8 +15,9 @@ function updateView() {
          <h3>Gjettespill</h3>
          <div>Du har gjettet ${countGuesses} ganger</div><br/>
          <div>Svaret er: ${eventMessage}</div>
+         <div>Svaret er: ${secretNumber}</div>
          <br/>
-         <div>Siste nummer er: ${result ?? 'Locked'}</div>
+         <div>Siste tall er: ${result ?? ''}</div>
          <br/>
          <input
          type="number"
@@ -53,8 +54,10 @@ function guess() {
         highScore += `<li>${ranWord}, din score er bare: ${countGuesses} trekk</li>`
         countGuesses = 0;
         init();
+    } else if (secretNumber < guessedNumber) {
+        eventMessage = 'mindre'
     } else {
-        eventMessage = 'FEIL'
+        eventMessage = 'større'
     }
     updateView();
 }
