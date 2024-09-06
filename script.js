@@ -15,7 +15,7 @@ function updateView() {
          <h3>Gjettespill</h3>
          <div>Du har gjettet ${countGuesses} ganger</div><br/>
          <div>Svaret er: ${eventMessage}</div>
-         <div>Svaret er: ${secretNumber}</div>
+     
          <br/>
          <div>Siste tall er: ${result ?? ''}</div>
          <br/>
@@ -51,7 +51,7 @@ function guess() {
     if (secretNumber == guessedNumber) {
         eventMessage = 'RIKTIG';
         ranWord = randomWord();
-        highScore += `<li>${ranWord}, din score er bare: ${countGuesses} trekk</li>`
+        highScore += `<li>${ranWord}, du klarte det på bare ${countGuesses} trekk</li>`
         countGuesses = 0;
         init();
     } else if (secretNumber < guessedNumber) {
